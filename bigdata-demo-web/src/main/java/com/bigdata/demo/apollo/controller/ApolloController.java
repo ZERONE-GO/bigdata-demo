@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ctrip.framework.apollo.Config;
 import com.ctrip.framework.apollo.ConfigService;
-import com.ctrip.framework.apollo.spring.annotation.ApolloConfig;
 
 @RestController
 @RequestMapping("/apollo")
@@ -17,7 +16,7 @@ public class ApolloController {
 	public String hello() {
 		return "Hello World";
 	}
-	
+
 	@RequestMapping(method = { RequestMethod.GET }, path = "/config/{key}")
 	public String getConfig(@PathVariable(name = "key", required = true) String key) {
 		Config config = ConfigService.getAppConfig();

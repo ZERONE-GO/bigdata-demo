@@ -10,20 +10,16 @@
 		<relativePath>../bigdata-demo-build/pom.xml</relativePath>
 	</parent>
 
-	<artifactId>bigdata-demo-mapper</artifactId>
-	<name>bigdata-demo-mapper</name>
+	<artifactId>bigdata-demo-entity</artifactId>
+	<name>bigdata-demo-entity</name>
 	<packaging>jar</packaging>
 
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
 		</dependency>
-        
-        <dependency>
-            <groupId>com.bigdata</groupId>
-            <artifactId>bigdata-demo-entity</artifactId>
-        </dependency>
 
 	</dependencies>
 
