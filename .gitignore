@@ -4,4 +4,4 @@
 
 target/
 bin/
-apollo/cache/
+**/apollo/cache/
