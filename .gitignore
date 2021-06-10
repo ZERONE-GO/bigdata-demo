@@ -4,4 +4,4 @@
 
 target/
 bin/
-config-cache/
+apollo/cache/

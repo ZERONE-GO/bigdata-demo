@@ -1,3 +1,16 @@
+app:
+    id: SampleApp
+
+apollo:
+    bootstrap:
+        enabled: true
+        namespaces: application, datasource.yml, example
+    meta: http://localhost:8080
+    cacheDir: ./apollo/cache
+#    cluster: az02
+#    accesskey:
+#        secret: 1cf998c4e2ad4704b45a98a509d15719
+
 server:
     port: 9090
     servlet:
@@ -19,14 +32,6 @@ logging:
         root: info
         com.bigdata.demo.user.mapper: info
 
-app:
-    id: SampleApp
-
-apollo:
-    bootstrap:
-        enabled: true
-    meta: http://localhost:8080
-    cacheDir: ./apollo/cache
-    cluster: az02
-#    accesskey:
-#        secret: 1cf998c4e2ad4704b45a98a509d15719
+example:
+    expireSeconds: 300
+    commandTimeout: 800
