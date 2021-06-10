@@ -31,7 +31,3 @@ logging:
     level:
         root: info
         com.bigdata.demo.user.mapper: info
-
-example:
-    expireSeconds: 300
-    commandTimeout: 800

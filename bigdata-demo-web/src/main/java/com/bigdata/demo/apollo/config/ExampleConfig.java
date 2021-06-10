@@ -1,6 +1,9 @@
 package com.bigdata.demo.apollo.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Component;
 
 import com.ctrip.framework.apollo.Config;
 import com.ctrip.framework.apollo.model.ConfigChangeEvent;
@@ -10,6 +13,8 @@ import com.ctrip.framework.apollo.spring.annotation.ApolloConfigChangeListener;
 import lombok.Data;
 
 @Data
+@Configuration
+@PropertySource("classpath:example/example.properties")
 @ConfigurationProperties(prefix = "example")
 public class ExampleConfig {
 
