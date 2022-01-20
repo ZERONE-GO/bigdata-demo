@@ -1,4 +1,4 @@
-package com.bigdata.demo.user.api.controller;
+package com.bigdata.demo.api.schema.controller;
 
 import java.util.ArrayList;
 import java.util.Arrays;

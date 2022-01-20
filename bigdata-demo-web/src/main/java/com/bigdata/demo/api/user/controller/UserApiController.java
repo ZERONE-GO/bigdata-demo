@@ -1,4 +1,4 @@
-package com.bigdata.demo.user.api.controller;
+package com.bigdata.demo.api.user.controller;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -65,7 +66,7 @@ public class UserApiController {
 	
 	@DeleteMapping("v1/user/{id}")
 	@ApiOperation("删除用户")
-	public boolean deleteUser(@ApiParam(value="用户id") int id) {
+	public boolean deleteUser(@PathVariable @ApiParam(value="用户id") int id) {
 		if(id < 0) {
 			throw new RuntimeException("用户id非法");
 		}
