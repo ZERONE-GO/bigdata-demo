@@ -19,11 +19,11 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 		</dependency>
-        
-        <dependency>
-            <groupId>com.bigdata</groupId>
-            <artifactId>bigdata-demo-entity</artifactId>
-        </dependency>
+
+		<dependency>
+			<groupId>com.bigdata</groupId>
+			<artifactId>bigdata-demo-entity</artifactId>
+		</dependency>
 
 	</dependencies>
 

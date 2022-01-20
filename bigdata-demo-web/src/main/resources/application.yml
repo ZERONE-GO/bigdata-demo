@@ -1,28 +1,32 @@
-jasypt:
-   encryptor:
-      password: 123abc
-      algorithm: PBEWithHmacSHA512AndAES_128
+#app:
+#    id: SampleApp
 
-app:
-    id: SampleApp
-
-apollo:
-    bootstrap:
-        enabled: true
-        namespaces: application, datasource.yml, example
-    meta: http://localhost:8080
-    cacheDir: ./apollo/cache
-    cluster: az03
-    accesskey:
-        secret: 3405ded0a30a4dcca59ce3adf7574d36
+#apollo:
+#    bootstrap:
+#        enabled: true
+#        namespaces: application, datasource.yml, example
+#    meta: http://localhost:8080
+#    cacheDir: ./apollo/cache
+#    cluster: az03
+#    accesskey:
+#        secret: 3405ded0a30a4dcca59ce3adf7574d36
 
 server:
     port: 9090
     servlet:
         context-path: /demo
 
-
-
+inner-api:
+       monitor:
+           enable: true
+       swagger:
+           enable: true
+           title: Bigdata Demo Inner API列表
+           description: Bigdata Demo工程，用于提供给第三方服务使用的api列表。
+           contact:
+               name: demo项目组
+               url: http://demo.com
+               email: zengzhirong87@163.com
 
 spring:
   datasource:
@@ -39,3 +43,9 @@ logging:
     level:
         root: info
         com.bigdata.demo.user.mapper: info
+
+jasypt:
+   encryptor:
+      password: 123abc
+      algorithm: PBEWithHmacSHA512AndAES_128
+        

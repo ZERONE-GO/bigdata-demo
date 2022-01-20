@@ -14,7 +14,7 @@
 	<artifactId>bigdata-demo-service</artifactId>
 	<name>bigdata-demo-service</name>
 	<packaging>jar</packaging>
-
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>

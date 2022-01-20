@@ -15,10 +15,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>bigdata-demo-web</name>
 	<description>Demo project for bigdata</description>
-	<properties>
-		<java.version>1.8</java.version>
-		<spring.boot.verssion>2.5.0</spring.boot.verssion>
-	</properties>
+
 
 	<dependencyManagement>
 		<dependencies>
@@ -84,6 +81,12 @@
 		<dependency>
 			<groupId>com.ctrip.framework.apollo</groupId>
 			<artifactId>apollo-client</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>com.google.guava</groupId>
+					<artifactId>guava</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -93,6 +96,15 @@
 	</dependencies>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+				<includes>
+					<include>**/*.yml</include>
+					<include>**/*.properties</include>
+				</includes>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

@@ -3,7 +3,6 @@ package com.bigdata.demo.apollo.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.stereotype.Component;
 
 import com.ctrip.framework.apollo.Config;
 import com.ctrip.framework.apollo.model.ConfigChangeEvent;
