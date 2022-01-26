@@ -21,7 +21,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 
 @RestController
-@RequestMapping("/api/schema")
+@RequestMapping("/inner-api/schema")
 @Api(tags = { "Schema" })
 public class SchemaApiController {
 

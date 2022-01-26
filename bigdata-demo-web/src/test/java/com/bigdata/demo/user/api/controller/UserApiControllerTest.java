@@ -36,16 +36,18 @@ public class UserApiControllerTest {
 	protected WebApplicationContext context;
 
 	private MockMvc mvc;
+	
+	private User mockUser;
 
 	@Before
 	public void before() {
 		mvc = MockMvcBuilders.webAppContextSetup(context).build();
 
 		// mock data for testing
-		User user = User.builder().id(6).userName("Test").password("123456").nickName("NT002").build();
-		Mockito.when(userService.getUser(6)).thenReturn(user);
-		Mockito.doReturn(true).when(userService).insertUser(user);
-		Mockito.doReturn(true).when(userService).updateUser(user);
+		mockUser = User.builder().id(6).userName("Test").password("123456").nickName("NT002").build();
+		Mockito.when(userService.getUser(6)).thenReturn(mockUser);
+		Mockito.doReturn(true).when(userService).insertUser(mockUser);
+		Mockito.doReturn(true).when(userService).updateUser(mockUser);
 		Mockito.doReturn(true).when(userService).deleteUser(6);
 	}
 
@@ -65,7 +67,7 @@ public class UserApiControllerTest {
 	public void testCreateUser() throws Exception {
 		RequestBuilder request = MockMvcRequestBuilders.post("/api/user/v1/user")
 				.contentType(MediaType.APPLICATION_JSON)
-				.content("{ \"id\": 6, \"nickName\": \"NT002\", \"password\": \"123456\", \"userName\": \"Test\"}");
+				.content(JacksonUtils.serialize(mockUser));
 		mvc.perform(request).andExpect(status().isOk()).andExpect(content().string("true"));
 	}
 	
@@ -73,7 +75,7 @@ public class UserApiControllerTest {
 	public void testUpdateUser() throws Exception {
 		RequestBuilder request = MockMvcRequestBuilders.put("/api/user/v1/user")
 				.contentType(MediaType.APPLICATION_JSON)
-				.content("{ \"id\": 6, \"nickName\": \"NT002\", \"password\": \"123456\", \"userName\": \"Test\"}");
+				.content(JacksonUtils.serialize(mockUser));
 		mvc.perform(request).andExpect(status().isOk()).andExpect(content().string("true"));
 	}
 	
@@ -82,5 +84,4 @@ public class UserApiControllerTest {
 		RequestBuilder request = MockMvcRequestBuilders.delete("/api/user/v1/user/6").contentType(MediaType.APPLICATION_JSON);
 		mvc.perform(request).andExpect(status().isOk()).andExpect(content().string("true"));
 	}
-
 }

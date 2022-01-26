@@ -21,6 +21,7 @@ inner-api:
            enable: true
        swagger:
            enable: true
+           paths: /api,/inner-api
            title: Bigdata Demo Inner API列表
            description: Bigdata Demo工程，用于提供给第三方服务使用的api列表。
            contact:
