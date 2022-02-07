@@ -12,41 +12,45 @@
 #        secret: 3405ded0a30a4dcca59ce3adf7574d36
 
 server:
-    port: 9090
-    servlet:
-        context-path: /demo
+   port: 9090
+   servlet:
+      context-path: /demo
 
 inner-api:
-       monitor:
-           enable: true
-       swagger:
-           enable: true
-           paths: /api,/inner-api
-           title: Bigdata Demo Inner API列表
-           description: Bigdata Demo工程，用于提供给第三方服务使用的api列表。
-           contact:
-               name: demo项目组
-               url: http://demo.com
-               email: zengzhirong87@163.com
+   monitor:
+      enable: true
+   swagger:
+      enable: true
+      paths: /api,/inner-api
+      title: Bigdata Demo Inner API列表
+      description: Bigdata Demo工程，用于提供给第三方服务使用的api列表。
+      contact:
+         name: demo项目组
+         url: http://demo.com
+         email: zengzhirong87@163.com
+
+response:
+   wrapper:
+      enable: true
+      packages: com.bigdata.demo
 
 spring:
-  datasource:
-    username: root
-    password: 12345678
-    url: jdbc:mysql://localhost:3306/BigData?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
-    driver-class-name: com.mysql.cj.jdbc.Driver
+   datasource:
+      username: root
+      password: 12345678
+      url: jdbc:mysql://localhost:3306/BigData?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+      driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis:
-  mapper-locations: classpath*:mapping/*Mapper.xml
-  type-aliases-package: com.bigdata.demo.user.entity
+   mapper-locations: classpath*:mapping/*Mapper.xml
+   type-aliases-package: com.bigdata.demo.user.entity
 
 logging:
-    level:
-        root: info
-        com.bigdata.demo.user.mapper: info
+   level:
+      root: info
+      com.bigdata.demo.user.mapper: info
 
 jasypt:
    encryptor:
       password: 123abc
       algorithm: PBEWithHmacSHA512AndAES_128
-        
