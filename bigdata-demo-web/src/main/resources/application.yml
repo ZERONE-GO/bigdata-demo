@@ -1,6 +1,5 @@
-#app:
-#    id: SampleApp
-
+app:
+   id: SampleApp
 #apollo:
 #    bootstrap:
 #        enabled: true
@@ -10,15 +9,13 @@
 #    cluster: az03
 #    accesskey:
 #        secret: 3405ded0a30a4dcca59ce3adf7574d36
-
 server:
    port: 9090
    servlet:
       context-path: /demo
-
 inner-api:
    monitor:
-      enable: true
+      enable: false
    swagger:
       enable: true
       paths: /api,/inner-api
@@ -28,28 +25,28 @@ inner-api:
          name: demo项目组
          url: http://demo.com
          email: zengzhirong87@163.com
-
 response:
    wrapper:
       enable: true
       packages: com.bigdata.demo
-
+error:
+   code:
+      module: DG
+      service: bigdata-demo
+      url: http://localhost:9080/error-code
 spring:
    datasource:
       username: root
       password: 12345678
       url: jdbc:mysql://localhost:3306/BigData?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
       driver-class-name: com.mysql.cj.jdbc.Driver
-
 mybatis:
    mapper-locations: classpath*:mapping/*Mapper.xml
    type-aliases-package: com.bigdata.demo.user.entity
-
 logging:
    level:
       root: info
       com.bigdata.demo.user.mapper: info
-
 jasypt:
    encryptor:
       password: 123abc

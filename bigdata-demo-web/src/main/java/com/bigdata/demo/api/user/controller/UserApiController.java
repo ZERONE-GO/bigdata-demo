@@ -16,8 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bigdata.demo.user.entity.User;
 import com.bigdata.demo.user.service.UserService;
-import com.bigdata.error.code.ErrorCode;
-import com.bigdata.error.code.exception.ServiceException;
+import com.bigdata.service.exception.ServiceException;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -44,24 +43,7 @@ public class UserApiController {
 			throw new RuntimeException("用户id非法");
 		}
 		if(id == 8) {
-			throw new ServiceException(new ErrorCode() {
-				
-				@Override
-				public String getName() {
-					return "MYSQL 无法连接.";
-				}
-				
-				@Override
-				public String getDescription() {
-					return "MySQL异常，联系运维人员查看数据库状态";
-				}
-				
-				@Override
-				public String getCode() {
-					// TODO Auto-generated method stub
-					return "DG01001F0001";
-				}
-			});
+			throw new ServiceException("DG01001F0001");
 		}
 		User user = userService.getUser(id);
 		return user;
