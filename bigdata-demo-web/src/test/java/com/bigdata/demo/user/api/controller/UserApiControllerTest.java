@@ -57,7 +57,7 @@ public class UserApiControllerTest {
 				.contentType(MediaType.APPLICATION_JSON);
 		mvc.perform(request)
 				.andExpect(status().isOk())
-				.andExpect(jsonPath("$.status").value(200))
+				.andExpect(jsonPath("$.status.status").value(200))
 				.andExpect(jsonPath("$.data.id").value(6))
 				.andExpect(jsonPath("$.data.userName").value("Test"))
 				.andExpect(jsonPath("$.data.password").value("123456"))
@@ -69,7 +69,7 @@ public class UserApiControllerTest {
 		RequestBuilder request = MockMvcRequestBuilders.post("/api/user/v1/user")
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(JacksonUtils.serialize(mockUser));
-		mvc.perform(request).andExpect(status().isOk()).andExpect(jsonPath("$.status").value(200)).andExpect(jsonPath("$.data").value(true));
+		mvc.perform(request).andExpect(status().isOk()).andExpect(jsonPath("$.status.status").value(200)).andExpect(jsonPath("$.data").value(true));
 	}
 	
 	@Test
@@ -77,13 +77,13 @@ public class UserApiControllerTest {
 		RequestBuilder request = MockMvcRequestBuilders.put("/api/user/v1/user")
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(JacksonUtils.serialize(mockUser));
-		mvc.perform(request).andExpect(status().isOk()).andExpect(jsonPath("$.status").value(200)).andExpect(jsonPath("$.data").value(true));
+		mvc.perform(request).andExpect(status().isOk()).andExpect(jsonPath("$.status.status").value(200)).andExpect(jsonPath("$.data").value(true));
 		
 	}
 	
 	@Test
 	public void testDeleteUser() throws Exception {
 		RequestBuilder request = MockMvcRequestBuilders.delete("/api/user/v1/user/6").contentType(MediaType.APPLICATION_JSON);
-		mvc.perform(request).andExpect(status().isOk()).andExpect(jsonPath("$.status").value(200)).andExpect(jsonPath("$.data").value(true));
+		mvc.perform(request).andExpect(status().isOk()).andExpect(jsonPath("$.status.status").value(200)).andExpect(jsonPath("$.data").value(true));
 	}
 }

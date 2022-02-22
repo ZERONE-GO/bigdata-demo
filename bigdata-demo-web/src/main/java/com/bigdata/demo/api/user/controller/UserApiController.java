@@ -43,7 +43,7 @@ public class UserApiController {
 			throw new RuntimeException("用户id非法");
 		}
 		if(id == 8) {
-			throw new ServiceException("DG01001F0001");
+			throw new ServiceException("YPWDG001F001");
 		}
 		User user = userService.getUser(id);
 		return user;
